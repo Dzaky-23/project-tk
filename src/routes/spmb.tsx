@@ -53,10 +53,10 @@ function Hero() {
     <section className="relative overflow-hidden bg-confetti py-16 md:py-20">
       <FloatingDecor />
       <div className="relative mx-auto max-w-5xl px-4 text-center md:px-8">
-        <span className="inline-flex items-center gap-2 rounded-full bg-tangerine/90 px-3 py-1 text-xs font-700 text-tangerine-foreground shadow-pop">
+        <span className="inline-flex items-center gap-2 rounded-full bg-tangerine/90 px-3 py-1 text-xs font-bold text-tangerine-foreground shadow-pop">
           <Sparkles className="h-3 w-3" /> SPMB Tahun Ajaran 2026/2027
         </span>
-        <h1 className="mt-4 font-display text-4xl font-700 md:text-6xl">
+        <h1 className="mt-4 font-display text-4xl font-bold md:text-6xl">
           Mulai petualangan si kecil di{" "}
           <span className="text-primary">TK Pertiwi</span>
         </h1>
@@ -128,7 +128,7 @@ function FormSection() {
                 }`}>
                   {done ? <Check className="h-5 w-5" /> : <s.icon className="h-5 w-5" />}
                 </div>
-                <span className={`text-[11px] font-700 md:text-xs ${active ? "text-foreground" : "text-muted-foreground"}`}>
+                <span className={`text-[11px] font-bold md:text-xs ${active ? "text-foreground" : "text-muted-foreground"}`}>
                   {s.label}
                 </span>
               </li>
@@ -154,13 +154,13 @@ function FormSection() {
             <button
               onClick={prev}
               disabled={step === 1}
-              className="inline-flex items-center gap-2 rounded-full bg-secondary px-5 py-3 text-sm font-700 text-foreground/80 transition hover:-translate-y-0.5 disabled:opacity-40 disabled:hover:translate-y-0"
+              className="inline-flex items-center gap-2 rounded-full bg-secondary px-5 py-3 text-sm font-bold text-foreground/80 transition hover:-translate-y-0.5 disabled:opacity-40 disabled:hover:translate-y-0"
             >
               <ChevronLeft className="h-4 w-4" /> Kembali
             </button>
             <button
               onClick={next}
-              className="inline-flex items-center gap-2 rounded-full bg-tangerine px-6 py-3 text-sm font-700 text-tangerine-foreground shadow-playful transition hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-full bg-tangerine px-6 py-3 text-sm font-bold text-tangerine-foreground shadow-playful transition hover:-translate-y-0.5"
             >
               {step === 3 ? "Kirim Pendaftaran" : "Lanjut"} <ChevronRight className="h-4 w-4" />
             </button>
@@ -174,20 +174,20 @@ function FormSection() {
 function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-sm font-700 text-foreground/80">{label}</span>
+      <span className="mb-1.5 block text-sm font-bold text-foreground/80">{label}</span>
       {children}
-      {error && <span className="mt-1 block text-xs font-600 text-destructive">{error}</span>}
+      {error && <span className="mt-1 block text-xs font-semibold text-destructive">{error}</span>}
     </label>
   );
 }
 
-const inputBase = "w-full rounded-2xl border-2 border-border bg-background px-4 py-3 text-sm font-500 outline-none transition focus:border-tangerine focus:bg-card";
+const inputBase = "w-full rounded-2xl border-2 border-border bg-background px-4 py-3 text-sm font-medium outline-none transition focus:border-tangerine focus:bg-card";
 
 function Step1({ form, errors, update }: { form: Form; errors: any; update: any }) {
   return (
     <div className="grid gap-5 md:grid-cols-2">
       <div className="md:col-span-2">
-        <h3 className="font-display text-2xl font-700">Data calon murid</h3>
+        <h3 className="font-display text-2xl font-bold">Data calon murid</h3>
         <p className="text-sm text-muted-foreground">Ceritakan tentang si kecil yang akan bergabung.</p>
       </div>
       <Field label="Nama Lengkap Anak" error={errors.namaAnak}>
@@ -206,7 +206,7 @@ function Step1({ form, errors, update }: { form: Form; errors: any; update: any 
               key={g}
               type="button"
               onClick={() => update("jenisKelamin", g)}
-              className={`flex-1 rounded-2xl border-2 px-4 py-3 text-sm font-700 transition ${
+              className={`flex-1 rounded-2xl border-2 px-4 py-3 text-sm font-bold transition ${
                 form.jenisKelamin === g
                   ? "border-tangerine bg-tangerine text-tangerine-foreground shadow-playful"
                   : "border-border bg-background text-foreground/80 hover:border-tangerine/50"
@@ -222,7 +222,7 @@ function Step1({ form, errors, update }: { form: Form; errors: any; update: any 
               key={k}
               type="button"
               onClick={() => update("kelompok", k)}
-              className={`flex-1 rounded-2xl border-2 px-4 py-3 text-xs font-700 transition md:text-sm ${
+              className={`flex-1 rounded-2xl border-2 px-4 py-3 text-xs font-bold transition md:text-sm ${
                 form.kelompok === k
                   ? "border-sky bg-sky text-sky-foreground shadow-playful"
                   : "border-border bg-background text-foreground/80 hover:border-sky/50"
@@ -239,7 +239,7 @@ function Step2({ form, errors, update }: { form: Form; errors: any; update: any 
   return (
     <div className="grid gap-5 md:grid-cols-2">
       <div className="md:col-span-2">
-        <h3 className="font-display text-2xl font-700">Data orang tua</h3>
+        <h3 className="font-display text-2xl font-bold">Data orang tua</h3>
         <p className="text-sm text-muted-foreground">Kami akan menghubungi nomor WhatsApp yang Anda berikan.</p>
       </div>
       <Field label="Nama Ayah" error={errors.namaAyah}>
@@ -278,7 +278,7 @@ function Step3({ form, errors, update }: { form: Form; errors: any; update: any 
   return (
     <div className="grid gap-5">
       <div>
-        <h3 className="font-display text-2xl font-700">Upload dokumen</h3>
+        <h3 className="font-display text-2xl font-bold">Upload dokumen</h3>
         <p className="text-sm text-muted-foreground">
           Lampirkan akta kelahiran, KK, dan pas foto anak (PDF/JPG, maks 5 MB).
         </p>
@@ -291,21 +291,21 @@ function Step3({ form, errors, update }: { form: Form; errors: any; update: any 
           <Upload className="h-6 w-6" />
         </span>
         <div>
-          <div className="font-700">Klik untuk upload dokumen</div>
+          <div className="font-bold">Klik untuk upload dokumen</div>
           <div className="text-xs text-muted-foreground">atau seret berkas ke sini</div>
         </div>
         <input type="file" className="hidden" onChange={onFile} accept=".pdf,.jpg,.jpeg,.png" />
         {form.dokumen && (
-          <div className="rounded-full bg-leaf px-4 py-1.5 text-xs font-700 text-leaf-foreground">
+          <div className="rounded-full bg-leaf px-4 py-1.5 text-xs font-bold text-leaf-foreground">
             ✓ {form.dokumen}
           </div>
         )}
       </label>
-      {errors.dokumen && <p className="text-xs font-600 text-destructive">{errors.dokumen}</p>}
+      {errors.dokumen && <p className="text-xs font-semibold text-destructive">{errors.dokumen}</p>}
 
       <ul className="grid gap-3 text-sm md:grid-cols-3">
         {["Akta Kelahiran", "Kartu Keluarga", "Pas Foto 3x4"].map((d) => (
-          <li key={d} className="flex items-center gap-2 rounded-2xl bg-secondary px-4 py-3 font-600">
+          <li key={d} className="flex items-center gap-2 rounded-2xl bg-secondary px-4 py-3 font-semibold">
             <Check className="h-4 w-4 text-leaf-foreground" /> {d}
           </li>
         ))}
@@ -320,7 +320,7 @@ function Step4({ form }: { form: Form }) {
       <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-3xl bg-leaf text-leaf-foreground shadow-playful animate-pop">
         <CheckCircle2 className="h-10 w-10" />
       </div>
-      <h3 className="mt-6 font-display text-3xl font-700">Hore, pendaftaran terkirim! 🎉</h3>
+      <h3 className="mt-6 font-display text-3xl font-bold">Hore, pendaftaran terkirim! 🎉</h3>
       <p className="mx-auto mt-3 max-w-md text-foreground/75">
         Terima kasih, <strong>{form.namaAnak || "calon murid"}</strong>! Tim
         kami akan menghubungi nomor WhatsApp <strong>{form.whatsapp}</strong>{" "}
@@ -329,7 +329,7 @@ function Step4({ form }: { form: Form }) {
       <div className="mx-auto mt-6 grid max-w-md gap-2 text-left text-sm">
         <div className="rounded-2xl bg-secondary p-4">
           <div className="text-xs text-muted-foreground">Nomor Pendaftaran</div>
-          <div className="font-display text-lg font-700">SPMB-{Date.now().toString().slice(-6)}</div>
+          <div className="font-display text-lg font-bold">SPMB-{Date.now().toString().slice(-6)}</div>
         </div>
       </div>
     </div>
@@ -345,7 +345,7 @@ function InfoSection() {
             <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-background text-sky-foreground shadow-pop">
               <Calendar className="h-6 w-6" />
             </span>
-            <h3 className="font-display text-2xl font-700 text-sky-foreground">Jadwal Pendaftaran</h3>
+            <h3 className="font-display text-2xl font-bold text-sky-foreground">Jadwal Pendaftaran</h3>
           </div>
           <ul className="mt-6 space-y-4 text-sky-foreground">
             {[
@@ -356,9 +356,9 @@ function InfoSection() {
               <li key={x.t} className="flex items-center justify-between gap-3 rounded-2xl bg-background/70 p-4">
                 <div>
                   <div className="text-xs text-muted-foreground">{x.t}</div>
-                  <div className="font-700">{x.d}</div>
+                  <div className="font-bold">{x.d}</div>
                 </div>
-                <span className="rounded-full bg-tangerine px-3 py-1 text-xs font-700 text-tangerine-foreground">{x.n}</span>
+                <span className="rounded-full bg-tangerine px-3 py-1 text-xs font-bold text-tangerine-foreground">{x.n}</span>
               </li>
             ))}
           </ul>
@@ -369,7 +369,7 @@ function InfoSection() {
             <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-background text-blossom-foreground shadow-pop">
               <Wallet className="h-6 w-6" />
             </span>
-            <h3 className="font-display text-2xl font-700 text-blossom-foreground">Informasi Biaya</h3>
+            <h3 className="font-display text-2xl font-bold text-blossom-foreground">Informasi Biaya</h3>
           </div>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             {[
@@ -380,7 +380,7 @@ function InfoSection() {
             ].map((c) => (
               <div key={c.t} className="rounded-2xl bg-background/80 p-4">
                 <div className="text-xs text-muted-foreground">{c.t}</div>
-                <div className="font-display text-xl font-700 text-foreground">{c.v}</div>
+                <div className="font-display text-xl font-bold text-foreground">{c.v}</div>
               </div>
             ))}
           </div>
@@ -403,7 +403,7 @@ function InfoSection() {
                 </span>
                 <div>
                   <div className="text-xs text-leaf-foreground/80">{x.t}</div>
-                  <div className="font-700 text-leaf-foreground">{x.v}</div>
+                  <div className="font-bold text-leaf-foreground">{x.v}</div>
                 </div>
               </div>
             ))}

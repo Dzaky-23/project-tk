@@ -58,10 +58,10 @@ function BeritaPage() {
       <section className="relative overflow-hidden bg-confetti py-16 md:py-20">
         <FloatingDecor />
         <div className="relative mx-auto max-w-5xl px-4 text-center md:px-8">
-          <span className="inline-flex items-center gap-2 rounded-full bg-background/80 px-3 py-1 text-xs font-700 text-primary shadow-pop">
+          <span className="inline-flex items-center gap-2 rounded-full bg-background/80 px-3 py-1 text-xs font-bold text-primary shadow-pop">
             <Sparkles className="h-3 w-3" /> Kabar Sekolah
           </span>
-          <h1 className="mt-4 font-display text-4xl font-700 md:text-6xl">
+          <h1 className="mt-4 font-display text-4xl font-bold md:text-6xl">
             Berita & <span className="text-grape">Cerita</span> Terbaru
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-foreground/75 md:text-lg">
@@ -86,7 +86,7 @@ function BeritaPage() {
             <button
               key={c}
               onClick={() => { setCat(c); setShown(6); }}
-              className={`rounded-full px-4 py-2 text-sm font-700 transition ${
+              className={`rounded-full px-4 py-2 text-sm font-bold transition ${
                 cat === c
                   ? "bg-foreground text-background shadow-playful"
                   : "bg-secondary text-foreground/80 hover:bg-sunny"
@@ -99,20 +99,20 @@ function BeritaPage() {
           <article className="mt-8 grid overflow-hidden rounded-[40px] bg-card shadow-pop md:grid-cols-2">
             <div className={`relative aspect-[16/10] md:aspect-auto bg-${featured.color}`}>
               <img src={featured.img} alt={featured.title} loading="lazy" className="h-full w-full object-cover" />
-              <span className="absolute left-5 top-5 rounded-full bg-background/95 px-3 py-1 text-xs font-700 text-foreground">
+              <span className="absolute left-5 top-5 rounded-full bg-background/95 px-3 py-1 text-xs font-bold text-foreground">
                 ★ Headline
               </span>
             </div>
             <div className="flex flex-col justify-center p-8 md:p-12">
               <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                <span className={`rounded-full bg-${featured.color} px-3 py-1 font-700 text-${featured.color}-foreground`}>
+                <span className={`rounded-full bg-${featured.color} px-3 py-1 font-bold text-${featured.color}-foreground`}>
                   {featured.category}
                 </span>
                 <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {featured.date}</span>
               </div>
-              <h2 className="mt-4 font-display text-3xl font-700 md:text-4xl">{featured.title}</h2>
+              <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">{featured.title}</h2>
               <p className="mt-3 text-foreground/75">{featured.excerpt}</p>
-              <a href="#" className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-tangerine px-5 py-3 text-sm font-700 text-tangerine-foreground shadow-playful">
+              <a href="#" className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-tangerine px-5 py-3 text-sm font-bold text-tangerine-foreground shadow-playful">
                 Baca selengkapnya <ArrowRight className="h-4 w-4" />
               </a>
             </div>
@@ -131,12 +131,12 @@ function BeritaPage() {
               </div>
               <div className="p-6">
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <span className={`rounded-full bg-${b.color} px-2.5 py-1 font-700 text-${b.color}-foreground`}>{b.category}</span>
+                  <span className={`rounded-full bg-${b.color} px-2.5 py-1 font-bold text-${b.color}-foreground`}>{b.category}</span>
                   <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {b.date}</span>
                 </div>
-                <h3 className="mt-3 font-display text-lg font-700 leading-snug">{b.title}</h3>
+                <h3 className="mt-3 font-display text-lg font-bold leading-snug">{b.title}</h3>
                 <p className="mt-2 line-clamp-2 text-sm text-foreground/70">{b.excerpt}</p>
-                <a href="#" className="mt-4 inline-flex items-center gap-1 text-sm font-700 text-primary">
+                <a href="#" className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-primary">
                   Baca lebih lanjut <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </a>
               </div>
@@ -152,7 +152,7 @@ function BeritaPage() {
           <div className="mt-12 text-center">
             <button
               onClick={() => setShown((s) => s + 6)}
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-700 text-primary-foreground shadow-playful hover:-translate-y-0.5 transition"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-bold text-primary-foreground shadow-playful hover:-translate-y-0.5 transition"
             >
               Muat lebih banyak <ArrowRight className="h-4 w-4" />
             </button>

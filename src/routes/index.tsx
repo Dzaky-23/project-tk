@@ -57,10 +57,10 @@ function Hero() {
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 md:grid-cols-2 md:px-8 lg:gap-16">
         <div className="animate-fade-up">
-          <span className="inline-flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-xs font-700 text-primary shadow-pop">
+          <span className="inline-flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-xs font-bold text-primary shadow-pop">
             <Sparkles className="h-4 w-4" /> Pendaftaran SPMB 2026/2027 Dibuka!
           </span>
-          <h1 className="mt-5 font-display text-4xl font-700 leading-[1.05] text-foreground md:text-6xl lg:text-[68px]">
+          <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] text-foreground md:text-6xl lg:text-[68px]">
             Membentuk{" "}
             <span className="relative inline-block">
               <span className="relative z-10">Generasi Ceria</span>
@@ -75,11 +75,11 @@ function Hero() {
             yang hangat dan teman-teman seusianya.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/spmb" className="group inline-flex items-center gap-2 rounded-full bg-tangerine px-7 py-4 text-base font-700 text-tangerine-foreground shadow-playful transition hover:-translate-y-0.5">
+            <Link to="/spmb" className="group inline-flex items-center gap-2 rounded-full bg-tangerine px-7 py-4 text-base font-bold text-tangerine-foreground shadow-playful transition hover:-translate-y-0.5">
               Daftar SPMB
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
             </Link>
-            <Link to="/kelompok-belajar" className="inline-flex items-center gap-2 rounded-full bg-background px-7 py-4 text-base font-700 text-foreground shadow-pop transition hover:-translate-y-0.5">
+            <Link to="/kelompok-belajar" className="inline-flex items-center gap-2 rounded-full bg-background px-7 py-4 text-base font-bold text-foreground shadow-pop transition hover:-translate-y-0.5">
               Lihat Kelompok Belajar
             </Link>
           </div>
@@ -96,7 +96,7 @@ function Hero() {
                   <Star key={idx} className="h-4 w-4 fill-current" />
                 ))}
               </div>
-              <p className="text-xs font-600 text-foreground/70">Dipercaya 200+ keluarga di Kalikondang</p>
+              <p className="text-xs font-semibold text-foreground/70">Dipercaya 200+ keluarga di Kalikondang</p>
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@ function Hero() {
               />
             ))}
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/55 to-transparent p-5">
-              <span className="rounded-full bg-background/95 px-4 py-1.5 text-xs font-700 text-foreground">
+              <span className="rounded-full bg-background/95 px-4 py-1.5 text-xs font-bold text-foreground">
                 {slides[i].tag}
               </span>
             </div>
@@ -150,7 +150,7 @@ function Hero() {
             </div>
             <div className="ml-3">
               <div className="text-xs text-muted-foreground">Aman & Nyaman</div>
-              <div className="text-sm font-700">Lingkungan Hijau</div>
+              <div className="text-sm font-bold">Lingkungan Hijau</div>
             </div>
           </div>
           <div className="absolute -right-4 bottom-10 hidden rotate-[6deg] rounded-3xl bg-background p-3 shadow-pop animate-float-slow md:flex">
@@ -159,7 +159,7 @@ function Hero() {
             </div>
             <div className="ml-3">
               <div className="text-xs text-muted-foreground">Guru Terbaik</div>
-              <div className="text-sm font-700">Penuh Kasih</div>
+              <div className="text-sm font-bold">Penuh Kasih</div>
             </div>
           </div>
         </div>
@@ -174,10 +174,10 @@ function VisiMisi() {
       <div className="grid gap-6 md:grid-cols-2">
         <div className="relative overflow-hidden rounded-[36px] bg-sky p-8 md:p-10">
           <Blob className="absolute -right-10 -top-10 h-48 w-48 text-background/30" />
-          <span className="relative inline-flex items-center gap-2 rounded-full bg-background/80 px-3 py-1 text-xs font-700 text-sky-foreground">
+          <span className="relative inline-flex items-center gap-2 rounded-full bg-background/80 px-3 py-1 text-xs font-bold text-sky-foreground">
             <Star className="h-3 w-3 fill-current" /> Visi
           </span>
-          <h2 className="relative mt-4 font-display text-2xl font-700 text-sky-foreground md:text-3xl">
+          <h2 className="relative mt-4 font-display text-2xl font-bold text-sky-foreground md:text-3xl">
             Menjadi taman kanak-kanak yang melahirkan generasi ceria, kreatif, dan berakhlak mulia.
           </h2>
           <p className="relative mt-3 text-sm text-sky-foreground/80 md:text-base">
@@ -189,7 +189,7 @@ function VisiMisi() {
 
         <div className="relative overflow-hidden rounded-[36px] bg-blossom p-8 md:p-10">
           <Blob className="absolute -left-10 -bottom-10 h-48 w-48 text-background/30" />
-          <span className="relative inline-flex items-center gap-2 rounded-full bg-background/80 px-3 py-1 text-xs font-700 text-blossom-foreground">
+          <span className="relative inline-flex items-center gap-2 rounded-full bg-background/80 px-3 py-1 text-xs font-bold text-blossom-foreground">
             <Heart className="h-3 w-3 fill-current" /> Misi
           </span>
           <ul className="relative mt-4 space-y-3 text-sm text-blossom-foreground md:text-base">
@@ -227,10 +227,10 @@ function Keunggulan() {
     <section className="relative overflow-hidden bg-gradient-to-b from-background to-sunny/20 py-20">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-tangerine/20 px-3 py-1 text-xs font-700 text-tangerine-foreground">
+          <span className="inline-flex items-center gap-2 rounded-full bg-tangerine/20 px-3 py-1 text-xs font-bold text-tangerine-foreground">
             <Sparkles className="h-3 w-3" /> Keunggulan Sekolah
           </span>
-          <h2 className="mt-3 font-display text-3xl font-700 md:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">
             Tempat yang dirancang untuk si kecil bertumbuh
           </h2>
           <p className="mt-3 text-foreground/70">
@@ -247,7 +247,7 @@ function Keunggulan() {
               <div className={`mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-${f.color} text-${f.color}-foreground transition group-hover:rotate-6`}>
                 <f.icon className="h-7 w-7" />
               </div>
-              <h3 className="font-display text-xl font-700">{f.title}</h3>
+              <h3 className="font-display text-xl font-bold">{f.title}</h3>
               <p className="mt-2 text-sm text-foreground/70">{f.desc}</p>
               <Blob className={`pointer-events-none absolute -right-12 -bottom-12 h-32 w-32 text-${f.color}/30`} />
             </div>
@@ -270,8 +270,8 @@ function Aktivitas() {
     <section className="mx-auto max-w-7xl px-4 py-20 md:px-8">
       <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
         <div>
-          <span className="inline-flex rounded-full bg-leaf/30 px-3 py-1 text-xs font-700 text-leaf-foreground">Aktivitas Anak</span>
-          <h2 className="mt-3 font-display text-3xl font-700 md:text-4xl">Setiap hari adalah petualangan baru</h2>
+          <span className="inline-flex rounded-full bg-leaf/30 px-3 py-1 text-xs font-bold text-leaf-foreground">Aktivitas Anak</span>
+          <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">Setiap hari adalah petualangan baru</h2>
         </div>
         <p className="max-w-md text-foreground/70">
           Mulai dari seni, alam, musik, hingga olahraga — kami merancang
@@ -288,7 +288,7 @@ function Aktivitas() {
           >
             <img src={a.img} alt={a.title} loading="lazy" width={1024} height={1024} className="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/70 to-transparent p-4">
-              <h3 className="font-display text-xl font-700 text-primary-foreground">{a.title}</h3>
+              <h3 className="font-display text-xl font-bold text-primary-foreground">{a.title}</h3>
             </div>
           </div>
         ))}
@@ -302,8 +302,8 @@ function Galeri() {
     <section className="relative overflow-hidden bg-sky/25 py-20">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="text-center">
-          <span className="inline-flex rounded-full bg-background px-3 py-1 text-xs font-700 text-primary shadow-pop">Galeri Kebahagiaan</span>
-          <h2 className="mt-3 font-display text-3xl font-700 md:text-4xl">Momen tak terlupakan</h2>
+          <span className="inline-flex rounded-full bg-background px-3 py-1 text-xs font-bold text-primary shadow-pop">Galeri Kebahagiaan</span>
+          <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">Momen tak terlupakan</h2>
         </div>
 
         <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
@@ -331,8 +331,8 @@ function Testimoni() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 md:px-8">
       <div className="mx-auto max-w-2xl text-center">
-        <span className="inline-flex rounded-full bg-blossom/40 px-3 py-1 text-xs font-700 text-blossom-foreground">Cerita Orang Tua</span>
-        <h2 className="mt-3 font-display text-3xl font-700 md:text-4xl">Dipercaya oleh keluarga di Kalikondang</h2>
+        <span className="inline-flex rounded-full bg-blossom/40 px-3 py-1 text-xs font-bold text-blossom-foreground">Cerita Orang Tua</span>
+        <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">Dipercaya oleh keluarga di Kalikondang</h2>
       </div>
       <div className="mt-12 grid gap-6 md:grid-cols-3">
         {testis.map((t, i) => (
@@ -344,7 +344,7 @@ function Testimoni() {
               {Array.from({ length: 5 }).map((_, idx) => <Star key={idx} className="h-3.5 w-3.5 fill-current" />)}
             </div>
             <div className="mt-4 border-t border-border pt-4">
-              <div className="font-700 text-foreground">{t.name}</div>
+              <div className="font-bold text-foreground">{t.name}</div>
               <div className="text-xs text-muted-foreground">{t.role}</div>
             </div>
           </div>
@@ -360,7 +360,7 @@ function CtaSpmb() {
       <div className="relative overflow-hidden rounded-[40px] bg-gradient-to-br from-tangerine via-blossom to-sunny p-8 md:p-14">
         <FloatingDecor />
         <div className="relative max-w-2xl">
-          <h2 className="font-display text-3xl font-700 text-foreground md:text-5xl">
+          <h2 className="font-display text-3xl font-bold text-foreground md:text-5xl">
             Yuk, jadi bagian dari keluarga besar TK Pertiwi Kalikondang!
           </h2>
           <p className="mt-4 text-foreground/80 md:text-lg">
@@ -369,10 +369,10 @@ function CtaSpmb() {
             potongan biaya pendaftaran 20% untuk 30 pendaftar pertama.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <Link to="/spmb" className="inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-4 text-base font-700 text-background shadow-playful hover:-translate-y-0.5 transition">
+            <Link to="/spmb" className="inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-4 text-base font-bold text-background shadow-playful hover:-translate-y-0.5 transition">
               Daftar Sekarang <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link to="/kelompok-belajar" className="inline-flex items-center gap-2 rounded-full bg-background/90 px-7 py-4 text-base font-700 text-foreground hover:-translate-y-0.5 transition">
+            <Link to="/kelompok-belajar" className="inline-flex items-center gap-2 rounded-full bg-background/90 px-7 py-4 text-base font-bold text-foreground hover:-translate-y-0.5 transition">
               Lihat Kelompok Belajar
             </Link>
           </div>

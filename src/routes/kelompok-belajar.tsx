@@ -49,10 +49,10 @@ function KBPage() {
       <section className="relative overflow-hidden bg-confetti py-16 md:py-20">
         <FloatingDecor />
         <div className="relative mx-auto max-w-5xl px-4 text-center md:px-8">
-          <span className="inline-flex items-center gap-2 rounded-full bg-background/80 px-3 py-1 text-xs font-700 text-primary shadow-pop">
+          <span className="inline-flex items-center gap-2 rounded-full bg-background/80 px-3 py-1 text-xs font-bold text-primary shadow-pop">
             <Sparkles className="h-3 w-3" /> Kelompok Belajar
           </span>
-          <h1 className="mt-4 font-display text-4xl font-700 md:text-6xl">
+          <h1 className="mt-4 font-display text-4xl font-bold md:text-6xl">
             Pilih petualangan untuk{" "}
             <span className="text-tangerine">si kecil</span>
           </h1>
@@ -76,10 +76,10 @@ function KBPage() {
               <div className={`relative inline-flex h-16 w-16 items-center justify-center rounded-3xl bg-background text-${g.color}-foreground shadow-pop transition group-hover:rotate-12`}>
                 <g.icon className="h-8 w-8" />
               </div>
-              <div className={`mt-5 inline-flex rounded-full bg-background/80 px-3 py-1 text-xs font-700 text-${g.color}-foreground`}>
+              <div className={`mt-5 inline-flex rounded-full bg-background/80 px-3 py-1 text-xs font-bold text-${g.color}-foreground`}>
                 {g.age}
               </div>
-              <h2 className={`mt-3 font-display text-3xl font-700 text-${g.color}-foreground md:text-4xl`}>
+              <h2 className={`mt-3 font-display text-3xl font-bold text-${g.color}-foreground md:text-4xl`}>
                 {g.title}
               </h2>
               <p className={`mt-3 text-${g.color}-foreground/80 md:text-lg`}>{g.desc}</p>
@@ -89,15 +89,15 @@ function KBPage() {
               </div>
 
               <div className="mt-6 flex flex-wrap gap-3">
-                <div className="flex items-center gap-2 rounded-full bg-background/85 px-4 py-2 text-xs font-700">
+                <div className="flex items-center gap-2 rounded-full bg-background/85 px-4 py-2 text-xs font-bold">
                   <Clock className="h-4 w-4 text-tangerine" /> {g.schedule}
                 </div>
-                <div className="flex items-center gap-2 rounded-full bg-background/85 px-4 py-2 text-xs font-700">
+                <div className="flex items-center gap-2 rounded-full bg-background/85 px-4 py-2 text-xs font-bold">
                   <Users className="h-4 w-4 text-leaf-foreground" /> Rasio Guru {g.rasio}
                 </div>
               </div>
 
-              <div className={`mt-6 inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-700 text-background transition group-hover:gap-3`}>
+              <div className={`mt-6 inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-bold text-background transition group-hover:gap-3`}>
                 Lihat detail kurikulum <ArrowRight className="h-4 w-4" />
               </div>
             </a>
@@ -112,8 +112,8 @@ function KBPage() {
                 <img src={g.img} alt={g.title} loading="lazy" className="aspect-[5/4] w-full rounded-[28px] object-cover" />
               </div>
               <div>
-                <span className={`inline-flex rounded-full bg-${g.color} px-3 py-1 text-xs font-700 text-${g.color}-foreground`}>{g.age}</span>
-                <h3 className="mt-3 font-display text-3xl font-700 md:text-4xl">{g.title}</h3>
+                <span className={`inline-flex rounded-full bg-${g.color} px-3 py-1 text-xs font-bold text-${g.color}-foreground`}>{g.age}</span>
+                <h3 className="mt-3 font-display text-3xl font-bold md:text-4xl">{g.title}</h3>
                 <p className="mt-3 text-foreground/75">{g.desc}</p>
                 <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                   {g.points.map((p) => (
@@ -121,11 +121,11 @@ function KBPage() {
                       <span className={`mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-${g.accent} text-${g.accent}-foreground`}>
                         <Sparkles className="h-3 w-3" />
                       </span>
-                      <span className="text-sm font-600">{p}</span>
+                      <span className="text-sm font-semibold">{p}</span>
                     </li>
                   ))}
                 </ul>
-                <Link to="/spmb" className="mt-8 inline-flex items-center gap-2 rounded-full bg-tangerine px-6 py-3 text-sm font-700 text-tangerine-foreground shadow-playful hover:-translate-y-0.5 transition">
+                <Link to="/spmb" className="mt-8 inline-flex items-center gap-2 rounded-full bg-tangerine px-6 py-3 text-sm font-bold text-tangerine-foreground shadow-playful hover:-translate-y-0.5 transition">
                   Daftarkan di kelompok ini <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>

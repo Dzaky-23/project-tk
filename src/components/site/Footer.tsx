@@ -13,7 +13,7 @@ export function Footer() {
                 <Sparkles className="h-5 w-5" />
               </span>
               <div className="leading-tight">
-                <div className="font-display text-lg font-700">TK Pertiwi Kalikondang</div>
+                <div className="font-display text-lg font-bold">TK Pertiwi Kalikondang</div>
                 <div className="text-xs text-muted-foreground">Ceria, Kreatif, Berkarakter</div>
               </div>
             </div>
@@ -32,7 +32,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display text-sm font-700 uppercase tracking-wide text-foreground/80">Halaman</h4>
+            <h4 className="font-display text-sm font-bold uppercase tracking-wide text-foreground/80">Halaman</h4>
             <ul className="mt-4 space-y-2 text-sm">
               <li><Link to="/" className="text-foreground/70 hover:text-primary">Home</Link></li>
               <li><Link to="/kelompok-belajar" className="text-foreground/70 hover:text-primary">Kelompok Belajar</Link></li>
@@ -42,7 +42,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display text-sm font-700 uppercase tracking-wide text-foreground/80">Kontak</h4>
+            <h4 className="font-display text-sm font-bold uppercase tracking-wide text-foreground/80">Kontak</h4>
             <ul className="mt-4 space-y-3 text-sm text-foreground/75">
               <li className="flex gap-2"><MapPin className="h-4 w-4 text-tangerine" /> Kalikondang, Demak, Jawa Tengah</li>
               <li className="flex gap-2"><Phone className="h-4 w-4 text-leaf-foreground" /> 0812-3456-7890</li>
