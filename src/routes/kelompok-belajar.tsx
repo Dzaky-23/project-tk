@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Baby, GraduationCap, Clock, Users, Sparkles } from "lucide-react";
-import { FloatingDecor, Blob } from "@/components/site/Decor";
-import kbA from "@/assets/kb-a.jpg";
-import kbB from "@/assets/kb-b.jpg";
+import { FloatingDecor, Blob } from "@/components/sections/Decor";
+import kbA from "@/assets/images/kb-a.jpg";
+import kbB from "@/assets/images/kb-b.jpg";
 
 export const Route = createFileRoute("/kelompok-belajar")({
   head: () => ({

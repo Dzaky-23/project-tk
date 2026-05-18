@@ -4,7 +4,7 @@ import {
   Check, ChevronLeft, ChevronRight, Upload, User, Users, FileText,
   CheckCircle2, Sparkles, Calendar, Wallet, Phone, MapPin,
 } from "lucide-react";
-import { FloatingDecor, Blob } from "@/components/site/Decor";
+import { FloatingDecor, Blob } from "@/components/sections/Decor";
 
 export const Route = createFileRoute("/spmb")({
   head: () => ({

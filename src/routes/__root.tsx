@@ -8,9 +8,9 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 
-import appCss from "../styles.css?url";
-import { Header } from "@/components/site/Header";
-import { Footer } from "@/components/site/Footer";
+import appCss from "../styles/index.css?url";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 
 function NotFoundComponent() {
   return (

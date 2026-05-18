@@ -4,14 +4,14 @@ import {
   Sparkles, Heart, Palette, BookOpen, Music, Trees,
   ArrowRight, Quote, Star, ChevronLeft, ChevronRight,
 } from "lucide-react";
-import { FloatingDecor, Blob } from "@/components/site/Decor";
-import hero1 from "@/assets/hero-1.jpg";
-import hero2 from "@/assets/hero-2.jpg";
-import hero3 from "@/assets/hero-3.jpg";
-import g1 from "@/assets/gallery-1.jpg";
-import g2 from "@/assets/gallery-2.jpg";
-import g3 from "@/assets/gallery-3.jpg";
-import g4 from "@/assets/gallery-4.jpg";
+import { FloatingDecor, Blob } from "@/components/sections/Decor";
+import hero1 from "@/assets/images/hero-1.jpg";
+import hero2 from "@/assets/images/hero-2.jpg";
+import hero3 from "@/assets/images/hero-3.jpg";
+import g1 from "@/assets/images/gallery-1.jpg";
+import g2 from "@/assets/images/gallery-2.jpg";
+import g3 from "@/assets/images/gallery-3.jpg";
+import g4 from "@/assets/images/gallery-4.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({

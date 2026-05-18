@@ -40,7 +40,7 @@ export function Header() {
             to="/spmb"
             className="ml-2 rounded-full bg-tangerine px-5 py-2 text-sm font-bold text-tangerine-foreground shadow-playful transition hover:-translate-y-0.5"
           >
-            Daftar SPMB
+            Daftar Sekarang
           </Link>
         </nav>
 

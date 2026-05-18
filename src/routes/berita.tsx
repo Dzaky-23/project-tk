@@ -1,13 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Calendar, ArrowRight, Sparkles, Search } from "lucide-react";
-import { FloatingDecor } from "@/components/site/Decor";
-import g1 from "@/assets/gallery-1.jpg";
-import g2 from "@/assets/gallery-2.jpg";
-import g3 from "@/assets/gallery-3.jpg";
-import g4 from "@/assets/gallery-4.jpg";
-import hero1 from "@/assets/hero-1.jpg";
-import hero2 from "@/assets/hero-2.jpg";
+import { FloatingDecor } from "@/components/sections/Decor";
+import g1 from "@/assets/images/gallery-1.jpg";
+import g2 from "@/assets/images/gallery-2.jpg";
+import g3 from "@/assets/images/gallery-3.jpg";
+import g4 from "@/assets/images/gallery-4.jpg";
+import hero1 from "@/assets/images/hero-1.jpg";
+import hero2 from "@/assets/images/hero-2.jpg";
 
 export const Route = createFileRoute("/berita")({
   head: () => ({
