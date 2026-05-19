@@ -1,13 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Calendar, ArrowRight, Sparkles, Search } from "lucide-react";
 import { FloatingDecor } from "@/components/sections/Decor";
-import g1 from "@/assets/images/gallery-1.jpg";
-import g2 from "@/assets/images/gallery-2.jpg";
-import g3 from "@/assets/images/gallery-3.jpg";
-import g4 from "@/assets/images/gallery-4.jpg";
-import hero1 from "@/assets/images/hero-1.jpg";
-import hero2 from "@/assets/images/hero-2.jpg";
+import { beritaData } from "@/data/berita";
 
 export const Route = createFileRoute("/berita")({
   head: () => ({
@@ -19,22 +14,8 @@ export const Route = createFileRoute("/berita")({
   component: BeritaPage,
 });
 
-type Berita = {
-  id: number; title: string; excerpt: string; img: string;
-  category: "Kegiatan" | "Pengumuman" | "Prestasi" | "Tips Parenting";
-  date: string; color: string;
-};
-
-const data: Berita[] = [
-  { id: 1, title: "Pentas Seni Akhir Semester Penuh Warna", excerpt: "Anak-anak menampilkan tari, drama, dan paduan suara yang memukau orang tua.", img: g1, category: "Kegiatan", date: "12 Mei 2026", color: "blossom" },
-  { id: 2, title: "Pendaftaran SPMB 2026/2027 Resmi Dibuka", excerpt: "Pendaftaran gelombang pertama dibuka mulai 1 Mei 2026 dengan diskon early bird.", img: hero1, category: "Pengumuman", date: "1 Mei 2026", color: "tangerine" },
-  { id: 3, title: "Juara 1 Lomba Mewarnai Tingkat Kecamatan", excerpt: "Ananda Aisya berhasil membawa pulang piala dari lomba mewarnai se-Demak.", img: g3, category: "Prestasi", date: "20 April 2026", color: "sunny" },
-  { id: 4, title: "Berkebun Bersama di Taman Sekolah", excerpt: "Anak-anak belajar menanam bunga matahari dan merawat tanaman setiap pagi.", img: g2, category: "Kegiatan", date: "8 April 2026", color: "leaf" },
-  { id: 5, title: "Tips Menemani Anak Belajar di Rumah", excerpt: "Lima cara sederhana agar waktu belajar di rumah jadi momen yang menyenangkan.", img: hero2, category: "Tips Parenting", date: "30 Maret 2026", color: "sky" },
-  { id: 6, title: "Field Trip Seru ke Kebun Binatang", excerpt: "Petualangan satu hari penuh tawa mengenal aneka satwa Indonesia.", img: g4, category: "Kegiatan", date: "15 Maret 2026", color: "grape" },
-  { id: 7, title: "Hari Kartini: Anak-anak Tampil Cantik & Tampan", excerpt: "Peringatan Hari Kartini dimeriahkan dengan parade busana adat nusantara.", img: g1, category: "Kegiatan", date: "21 April 2026", color: "blossom" },
-  { id: 8, title: "Tips Mengelola Tantrum dengan Tenang", excerpt: "Panduan singkat untuk orang tua dalam menghadapi emosi besar si kecil.", img: g3, category: "Tips Parenting", date: "10 Maret 2026", color: "sky" },
-];
+type Berita = typeof beritaData[number];
+const data = beritaData;
 
 const categories = ["Semua", "Kegiatan", "Pengumuman", "Prestasi", "Tips Parenting"] as const;
 
@@ -96,9 +77,13 @@ function BeritaPage() {
         </div>
 
         {featured && (
-          <article className="mt-8 grid overflow-hidden rounded-[40px] bg-card shadow-pop md:grid-cols-2">
+          <Link
+            to="/berita/$slug"
+            params={{ slug: featured.slug! }}
+            className="group mt-8 grid overflow-hidden rounded-[40px] bg-card shadow-pop md:grid-cols-2 hover:-translate-y-1 hover:shadow-playful transition"
+          >
             <div className={`relative aspect-[16/10] md:aspect-auto bg-${featured.color}`}>
-              <img src={featured.img} alt={featured.title} loading="lazy" className="h-full w-full object-cover" />
+              <img src={featured.img} alt={featured.title} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
               <span className="absolute left-5 top-5 rounded-full bg-background/95 px-3 py-1 text-xs font-bold text-foreground">
                 ★ Headline
               </span>
@@ -110,20 +95,22 @@ function BeritaPage() {
                 </span>
                 <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {featured.date}</span>
               </div>
-              <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">{featured.title}</h2>
+              <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl group-hover:text-primary transition-colors">{featured.title}</h2>
               <p className="mt-3 text-foreground/75">{featured.excerpt}</p>
-              <a href="#" className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-tangerine px-5 py-3 text-sm font-bold text-tangerine-foreground shadow-playful">
-                Baca selengkapnya <ArrowRight className="h-4 w-4" />
-              </a>
+              <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-primary">
+                Baca selengkapnya <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+              </span>
             </div>
-          </article>
+          </Link>
         )}
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {rest.map((b, i) => (
-            <article
+            <Link
+              to="/berita/$slug"
+              params={{ slug: b.slug }}
               key={b.id}
-              className="group overflow-hidden rounded-[28px] bg-card shadow-pop transition hover:-translate-y-1 hover:shadow-playful"
+              className="group block overflow-hidden rounded-[28px] bg-card shadow-pop transition hover:-translate-y-1 hover:shadow-playful"
               style={{ transform: `rotate(${i % 2 ? 0.5 : -0.5}deg)` }}
             >
               <div className={`aspect-[16/10] overflow-hidden bg-${b.color}`}>
@@ -134,13 +121,13 @@ function BeritaPage() {
                   <span className={`rounded-full bg-${b.color} px-2.5 py-1 font-bold text-${b.color}-foreground`}>{b.category}</span>
                   <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {b.date}</span>
                 </div>
-                <h3 className="mt-3 font-display text-lg font-bold leading-snug">{b.title}</h3>
+                <h3 className="mt-3 font-display text-lg font-bold leading-snug group-hover:text-primary transition-colors">{b.title}</h3>
                 <p className="mt-2 line-clamp-2 text-sm text-foreground/70">{b.excerpt}</p>
-                <a href="#" className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-primary">
-                  Baca lebih lanjut <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                </a>
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-primary">
+                  Baca selengkapnya <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
 

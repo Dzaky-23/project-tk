@@ -22,13 +22,17 @@ type Form = {
   // step 2
   namaAyah: string; namaIbu: string; alamat: string; whatsapp: string; email: string;
   // step 3
-  dokumen: string;
+  akta: string;
+  kk: string;
+  foto: string;
 };
 
 const initial: Form = {
   namaAnak: "", tempatLahir: "", tanggalLahir: "", jenisKelamin: "", kelompok: "",
   namaAyah: "", namaIbu: "", alamat: "", whatsapp: "", email: "",
-  dokumen: "",
+  akta: "",
+  kk: "",
+  foto: "",
 };
 
 const steps = [
@@ -99,7 +103,9 @@ function FormSection() {
       if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "Email tidak valid";
     }
     if (step === 3) {
-      if (!form.dokumen) e.dokumen = "Upload minimal 1 dokumen";
+    if (!form.akta) e.akta = "Akta wajib diupload";
+    if (!form.kk) e.kk = "KK wajib diupload";
+    if (!form.foto) e.foto = "Pas foto wajib diupload";
     }
     setErrors(e);
     return Object.keys(e).length === 0;
@@ -270,46 +276,116 @@ function Step2({ form, errors, update }: { form: Form; errors: any; update: any 
 }
 
 function Step3({ form, errors, update }: { form: Form; errors: any; update: any }) {
-  function onFile(e: React.ChangeEvent<HTMLInputElement>) {
+  const documents = [
+    {
+      key: "akta",
+      label: "Akta Kelahiran",
+    },
+    {
+      key: "kk",
+      label: "Kartu Keluarga",
+    },
+    {
+      key: "foto",
+      label: "Pas Foto 3x4",
+    },
+  ] as const;
+
+  function onFile(
+    key: "akta" | "kk" | "foto",
+    e: React.ChangeEvent<HTMLInputElement>
+  ) {
     const f = e.target.files?.[0];
     if (!f) return;
-    update("dokumen", f.name);
+
+    update(key, f.name);
   }
+
   return (
     <div className="grid gap-5">
       <div>
-        <h3 className="font-display text-2xl font-bold">Upload dokumen</h3>
+        <h3 className="font-display text-2xl font-bold">
+          Upload dokumen
+        </h3>
+
         <p className="text-sm text-muted-foreground">
-          Lampirkan akta kelahiran, KK, dan pas foto anak (PDF/JPG, maks 5 MB).
+          Lampirkan seluruh dokumen persyaratan berikut.
         </p>
       </div>
 
-      <label className={`flex cursor-pointer flex-col items-center justify-center gap-3 rounded-3xl border-2 border-dashed p-10 text-center transition ${
-        errors.dokumen ? "border-destructive bg-destructive/5" : "border-tangerine/60 bg-tangerine/10 hover:bg-tangerine/15"
-      }`}>
-        <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-tangerine text-tangerine-foreground shadow-playful">
-          <Upload className="h-6 w-6" />
-        </span>
-        <div>
-          <div className="font-bold">Klik untuk upload dokumen</div>
-          <div className="text-xs text-muted-foreground">atau seret berkas ke sini</div>
-        </div>
-        <input type="file" className="hidden" onChange={onFile} accept=".pdf,.jpg,.jpeg,.png" />
-        {form.dokumen && (
-          <div className="rounded-full bg-leaf px-4 py-1.5 text-xs font-bold text-leaf-foreground">
-            ✓ {form.dokumen}
-          </div>
-        )}
-      </label>
-      {errors.dokumen && <p className="text-xs font-semibold text-destructive">{errors.dokumen}</p>}
+      <div className="grid gap-4">
+        {documents.map((doc) => {
+          const uploaded = !!form[doc.key];
 
-      <ul className="grid gap-3 text-sm md:grid-cols-3">
-        {["Akta Kelahiran", "Kartu Keluarga", "Pas Foto 3x4"].map((d) => (
-          <li key={d} className="flex items-center gap-2 rounded-2xl bg-secondary px-4 py-3 font-semibold">
-            <Check className="h-4 w-4 text-leaf-foreground" /> {d}
-          </li>
-        ))}
-      </ul>
+          return (
+            <label
+              key={doc.key}
+              className={`flex cursor-pointer items-center justify-between gap-4 rounded-3xl border-2 p-5 transition ${
+                errors[doc.key]
+                  ? "border-destructive bg-destructive/5"
+                  : uploaded
+                  ? "border-leaf bg-leaf/10"
+                  : "border-tangerine/60 bg-tangerine/10 hover:bg-tangerine/15"
+              }`}
+            >
+              <div className="flex items-center gap-4">
+                <span
+                  className={`flex h-14 w-14 items-center justify-center rounded-2xl shadow-playful ${
+                    uploaded
+                      ? "bg-leaf text-leaf-foreground"
+                      : "bg-tangerine text-tangerine-foreground"
+                  }`}
+                >
+                  {uploaded ? (
+                    <Check className="h-6 w-6" />
+                  ) : (
+                    <Upload className="h-6 w-6" />
+                  )}
+                </span>
+
+                <div>
+                  <div className="font-bold">
+                    {doc.label}
+                  </div>
+
+                  <div className="text-xs text-muted-foreground">
+                    PDF / JPG / PNG • Maks 5 MB
+                  </div>
+
+                  {form[doc.key] && (
+                    <div className="mt-1 text-xs font-semibold text-leaf-foreground">
+                      ✓ {form[doc.key]}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <input
+                type="file"
+                className="hidden"
+                accept=".pdf,.jpg,.jpeg,.png"
+                onChange={(e) => onFile(doc.key, e)}
+              />
+
+              <div
+                className={`rounded-full px-4 py-2 text-xs font-bold ${
+                  uploaded
+                    ? "bg-leaf text-leaf-foreground"
+                    : "bg-background text-foreground/70"
+                }`}
+              >
+                {uploaded ? "Uploaded" : "Upload"}
+              </div>
+            </label>
+          );
+        })}
+      </div>
+
+      {(errors.akta || errors.kk || errors.foto) && (
+        <p className="text-xs font-semibold text-destructive">
+          Semua dokumen wajib diupload.
+        </p>
+      )}
     </div>
   );
 }
