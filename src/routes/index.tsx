@@ -12,6 +12,9 @@ import g1 from "@/assets/images/gallery-1.jpg";
 import g2 from "@/assets/images/gallery-2.jpg";
 import g3 from "@/assets/images/gallery-3.jpg";
 import g4 from "@/assets/images/gallery-4.jpg";
+import StatsSection from '@/components/sections/StatsSection'
+import SchoolInfoSection from '@/components/sections/SchoolInfoSection'
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,8 +37,10 @@ function HomePage() {
     <>
       <Hero />
       <VisiMisi />
+      <StatsSection />
       <Keunggulan />
       <Aktivitas />
+      <SchoolInfoSection />
       <Galeri />
       <Testimoni />
       <CtaSpmb />
