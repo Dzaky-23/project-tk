@@ -111,6 +111,15 @@
     }
 }
 
+@keyframes kenburns {
+    0% {
+        transform: scale(1.05) translate(0, 0);
+    }
+    100% {
+        transform: scale(1.18) translate(-1.5%, -1%);
+    }
+}
+
 :root {
     --radius: 1.25rem;
     --background: oklch(0.99 0.012 95);
