@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
   Sparkles, Heart, Palette, BookOpen, Music, Trees,
-  ArrowRight, Quote, Star, ChevronLeft, ChevronRight,
+  ArrowRight, Quote, Star, ChevronLeft, ChevronRight, GraduationCap,
 } from "lucide-react";
 import { FloatingDecor, Blob } from "@/components/sections/Decor";
 import hero1 from "@/assets/images/hero-1.jpg";
@@ -27,9 +27,24 @@ export const Route = createFileRoute("/")({
 });
 
 const slides = [
-  { img: hero1, tag: "Bermain Bersama" },
-  { img: hero2, tag: "Kreativitas Tanpa Batas" },
-  { img: hero3, tag: "Cerita & Imajinasi" },
+  {
+    img: hero1,
+    kicker: "Selamat Datang di TK Pertiwi Kalikondang",
+    title: ["Ceria, Kreatif,", "dan Berkarakter"],
+    desc: "Rumah kedua bagi si kecil — tempat bermain, belajar, dan menemukan keajaiban setiap hari bersama guru yang hangat.",
+  },
+  {
+    img: hero2,
+    kicker: "Visi Kami",
+    title: ["Melahirkan Generasi", "Cemerlang Sejak Dini"],
+    desc: "Menjadi taman kanak-kanak yang membentuk anak ceria, kreatif, mandiri, dan berakhlak mulia untuk masa depan Indonesia.",
+  },
+  {
+    img: hero3,
+    kicker: "Misi Kami",
+    title: ["Bermain, Belajar,", "Bertumbuh Bersama"],
+    desc: "Pembelajaran menyenangkan, penanaman karakter, eksplorasi seni & alam, serta kemitraan hangat antara sekolah dan keluarga.",
+  },
 ];
 
 function HomePage() {
@@ -51,123 +66,85 @@ function HomePage() {
 function Hero() {
   const [i, setI] = useState(0);
   useEffect(() => {
-    const t = setInterval(() => setI((p) => (p + 1) % slides.length), 4500);
+    const t = setInterval(() => setI((p) => (p + 1) % slides.length), 5500);
     return () => clearInterval(t);
   }, []);
+const current = slides[i];
   return (
-    <section className="relative overflow-hidden bg-confetti pb-20 pt-10 md:pt-16">
-      <FloatingDecor />
-      <Blob className="absolute -left-32 top-20 h-[420px] w-[420px] text-sunny/50" />
-      <Blob className="absolute -right-40 bottom-0 h-[480px] w-[480px] text-sky/50" />
-
-      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 md:grid-cols-2 md:px-8 lg:gap-16">
-        <div className="animate-fade-up">
-          <span className="inline-flex items-center gap-2 rounded-full bg-background/80 px-4 py-2 text-xs font-bold text-primary shadow-pop">
-            <Sparkles className="h-4 w-4" /> Pendaftaran SPMB 2026/2027 Dibuka!
+    <section className="relative h-[88vh] min-h-[600px] w-full overflow-hidden">
+      {/* Slides background */}
+      {slides.map((s, idx) => (
+        <div
+          key={idx}
+          className={`absolute inset-0 transition-opacity duration-[1400ms] ease-out ${
+            i === idx ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <img
+            src={s.img}
+            alt={s.kicker}
+            className={`h-full w-full object-cover ${i === idx ? "animate-[kenburns_8s_ease-out_forwards]" : ""}`}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-foreground/55 via-foreground/40 to-foreground/75" />
+        </div>
+      ))}
+      {/* Decorative floating shapes */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-[6%] top-[18%] h-24 w-24 rounded-full bg-sunny/30 blur-2xl animate-float" />
+        <div className="absolute right-[10%] top-[30%] h-32 w-32 rounded-full bg-sky/30 blur-2xl animate-float-slow" />
+        <div className="absolute left-[20%] bottom-[12%] h-28 w-28 rounded-full bg-blossom/30 blur-2xl animate-float" />
+        <Sparkles className="absolute left-[12%] top-[28%] h-7 w-7 text-sunny animate-wiggle" />
+        <Star className="absolute right-[18%] bottom-[24%] h-8 w-8 text-tangerine fill-tangerine animate-float" />
+      </div>
+      {/* Content */}
+      <div className="relative z-10 mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-4 text-center md:px-8">
+        <div key={i} className="animate-fade-up">
+          <span className="inline-flex items-center gap-2 rounded-full bg-background/15 px-4 py-2 text-xs font-bold uppercase tracking-wider text-background backdrop-blur-md ring-1 ring-background/25 md:text-sm">
+            <GraduationCap className="h-4 w-4" /> {current.kicker}
           </span>
-          <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] text-foreground md:text-6xl lg:text-[68px]">
-            Membentuk{" "}
-            <span className="relative inline-block">
-              <span className="relative z-10">Generasi Ceria</span>
-              <span className="absolute -bottom-2 left-0 right-0 h-3 rounded-full bg-sunny" />
+          <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] text-background drop-shadow-lg md:text-7xl lg:text-8xl">
+            {current.title[0]}
+            <br />
+            <span className="bg-gradient-to-r from-sunny via-tangerine to-blossom bg-clip-text text-transparent">
+              {current.title[1]}
             </span>
-            , Kreatif, dan{" "}
-            <span className="text-tangerine">Berkarakter</span>
           </h1>
-          <p className="mt-6 max-w-xl text-base text-foreground/75 md:text-lg">
-            TK Pertiwi Kalikondang adalah rumah kedua bagi si kecil — tempat
-            bermain, belajar, dan menemukan keajaiban setiap hari bersama guru
-            yang hangat dan teman-teman seusianya.
+          <p className="mx-auto mt-6 max-w-2xl text-base text-background/90 md:text-lg">
+            {current.desc}
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/spmb" className="group inline-flex items-center gap-2 rounded-full bg-tangerine px-7 py-4 text-base font-bold text-tangerine-foreground shadow-playful transition hover:-translate-y-0.5">
-              Daftar SPMB
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+            <Link to="/spmb" className="group inline-flex items-center gap-2 rounded-full bg-tangerine px-8 py-4 text-base font-bold text-tangerine-foreground shadow-playful transition hover:-translate-y-0.5">
+              Daftar Sekarang
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
             </Link>
-            <Link to="/kelompok-belajar" className="inline-flex items-center gap-2 rounded-full bg-background px-7 py-4 text-base font-bold text-foreground shadow-pop transition hover:-translate-y-0.5">
-              Lihat Kelompok Belajar
+            <Link to="/kelompok-belajar" className="inline-flex items-center gap-2 rounded-full bg-background/15 px-8 py-4 text-base font-bold text-background backdrop-blur-md ring-1 ring-background/40 transition hover:bg-background/25">
+              Pelajari Lebih Lanjut
             </Link>
           </div>
 
-          <div className="mt-10 flex items-center gap-6">
-            <div className="flex -space-x-3">
-              {[g3, g1, g2].map((s, idx) => (
-                <img key={idx} src={s} alt="" className="h-11 w-11 rounded-full border-4 border-background object-cover" />
-              ))}
-            </div>
-            <div>
-              <div className="flex items-center gap-1 text-tangerine">
-                {Array.from({ length: 5 }).map((_, idx) => (
-                  <Star key={idx} className="h-4 w-4 fill-current" />
-                ))}
-              </div>
-              <p className="text-xs font-semibold text-foreground/70">Dipercaya 200+ keluarga di Kalikondang</p>
-            </div>
           </div>
-        </div>
-
-        {/* Slider */}
-        <div className="relative animate-fade-up">
-          <div className="relative aspect-[5/6] overflow-hidden rounded-[40px] border-[6px] border-background shadow-playful">
-            {slides.map((s, idx) => (
-              <img
-                key={idx}
-                src={s.img}
-                alt={s.tag}
-                width={1536}
-                height={1024}
-                className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${
-                  i === idx ? "opacity-100 scale-100" : "opacity-0 scale-105"
-                }`}
-              />
-            ))}
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/55 to-transparent p-5">
-              <span className="rounded-full bg-background/95 px-4 py-1.5 text-xs font-bold text-foreground">
-                {slides[i].tag}
-              </span>
-            </div>
-            <button
-              onClick={() => setI((p) => (p - 1 + slides.length) % slides.length)}
-              className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-background/90 shadow-pop hover:scale-110"
-              aria-label="Prev"
-            ><ChevronLeft className="h-5 w-5" /></button>
-            <button
-              onClick={() => setI((p) => (p + 1) % slides.length)}
-              className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-background/90 shadow-pop hover:scale-110"
-              aria-label="Next"
-            ><ChevronRight className="h-5 w-5" /></button>
-            <div className="absolute bottom-4 right-4 flex gap-1.5">
-              {slides.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setI(idx)}
-                  className={`h-2 rounded-full transition-all ${i === idx ? "w-6 bg-background" : "w-2 bg-background/60"}`}
-                  aria-label={`Slide ${idx + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* floating badges */}
-          <div className="absolute -left-6 top-10 hidden rotate-[-8deg] rounded-3xl bg-background p-3 shadow-pop animate-float md:flex">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-leaf text-leaf-foreground">
-              <Trees className="h-6 w-6" />
-            </div>
-            <div className="ml-3">
-              <div className="text-xs text-muted-foreground">Aman & Nyaman</div>
-              <div className="text-sm font-bold">Lingkungan Hijau</div>
-            </div>
-          </div>
-          <div className="absolute -right-4 bottom-10 hidden rotate-[6deg] rounded-3xl bg-background p-3 shadow-pop animate-float-slow md:flex">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blossom text-blossom-foreground">
-              <Heart className="h-6 w-6 fill-current" />
-            </div>
-            <div className="ml-3">
-              <div className="text-xs text-muted-foreground">Guru Terbaik</div>
-              <div className="text-sm font-bold">Penuh Kasih</div>
-            </div>
-          </div>
-        </div>
+      </div>
+      {/* Prev / Next */}
+      <button
+        onClick={() => setI((p) => (p - 1 + slides.length) % slides.length)}
+        className="absolute left-4 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-background/15 text-background backdrop-blur-md ring-1 ring-background/30 transition hover:bg-background/25 md:flex"
+        aria-label="Sebelumnya"
+      ><ChevronLeft className="h-6 w-6" /></button>
+      <button
+        onClick={() => setI((p) => (p + 1) % slides.length)}
+        className="absolute right-4 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-background/15 text-background backdrop-blur-md ring-1 ring-background/30 transition hover:bg-background/25 md:flex"
+        aria-label="Berikutnya"
+      ><ChevronRight className="h-6 w-6" /></button>
+      {/* Dots */}
+      <div className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+        {slides.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setI(idx)}
+            className={`h-2 rounded-full transition-all ${i === idx ? "w-10 bg-background" : "w-2 bg-background/50"}`}
+            aria-label={`Slide ${idx + 1}`}
+          />
+        ))}
       </div>
     </section>
   );

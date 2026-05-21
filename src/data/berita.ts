@@ -223,22 +223,22 @@ Tantrum biasanya terjadi ketika anak:
 
 **Langkah-Langkah Menangani Tantrum**
 
-1. **Tetap Tenang**
+1. Tetap Tenang
    Jangan membiarkan emosi Anda terbawa. Anak akan mengikuti contoh dari orang tua.
 
-2. **Jangan Memberikan Perhatian Negatif**
+2. Jangan Memberikan Perhatian Negatif
    Hindari berteriak atau mengmarahi anak. Hal ini hanya akan memperburuk tantrum.
 
-3. **Ciptakan Ruang Aman**
+3. Ciptakan Ruang Aman
    Pastikan anak tidak menyakiti diri sendiri atau orang lain. Biarkan mereka mengekspresikan emosi mereka.
 
-4. **Valida Perasaan Anak**
+4. Valida Perasaan Anak
    Katakan "Ibu tahu kamu sedang marah" untuk menunjukkan bahwa Anda memahami perasaan mereka.
 
-5. **Tawarkan Solusi**
+5. Tawarkan Solusi
    Setelah anak lebih tenang, tawarkan alternatif atau solusi untuk masalahnya.
 
-6. **Konsistensi adalah Kunci**
+6. Konsistensi adalah Kunci
    Selalu berikan batasan yang sama dan konsisten untuk memperkuat aturan.
 
 **Pencegahan Tantrum**
